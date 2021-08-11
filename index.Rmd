@@ -12,3 +12,5 @@ github-repo: rstudio/bookdown-demo
 ---
 
 # Introduction to Course
+
+This would be some text introducing the course and materials.
