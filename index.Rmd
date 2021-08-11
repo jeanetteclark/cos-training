@@ -1,0 +1,14 @@
+--- 
+title: "Data Management and Visualization Training"
+author: "Stanford, NCEAS"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: Materials for the Stanford and NCEAS PICRC Training
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Introduction to Course
