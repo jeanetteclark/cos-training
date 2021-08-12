@@ -32,12 +32,19 @@ jobs:
    runs-on: ubuntu-latest
    needs: bookdown
    steps:
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: crazy-max/ghaction-github-pages@v2.2.0
-        with:
-          target_branch: gh-pages
-          build_dir: /
-          jekyll: false
-        env:
+     - name: Checkout
+       uses: actions/checkout@master
+     - name: Download artifact
+       uses: actions/download-artifact@v1.0.0
+       with:
+         # Artifact name
+         name: _book # optional
+         # Destination path
+         path: _book # optional
+     - name: Deploy to GitHub Pages
+       uses: Cecilapp/GitHub-Pages-deploy@v3
+       env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+       with:
+          build_dir: _book/ # "_site/" by default
+          email: ${{ secrets.EMAIL }}  # must be a verified email
