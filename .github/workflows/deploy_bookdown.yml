@@ -33,11 +33,11 @@ jobs:
    needs: bookdown
    steps:
       - name: Deploy to GitHub Pages
-        uses: Cecilapp/GitHub-Pages-deploy@v3
+        if: github.ref == 'refs/heads/main'
+        uses: crazy-max/ghaction-github-pages@v2.2.0
+        with:
+          target_branch: gh-pages
+          build_dir: _book
+          jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-        with:
-          email: ${{ secrets.EMAIL }}
-          build_dir: _book               # optional
-          branch: gh-pages                # optional
-          jekyll: no                     # optional
